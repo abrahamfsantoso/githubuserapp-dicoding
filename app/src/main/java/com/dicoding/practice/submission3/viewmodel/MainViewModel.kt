@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.*
+import com.dicoding.practice.submission3.BuildConfig
 import com.dicoding.practice.submission3.SettingPreferences
 import com.dicoding.practice.submission3.model.User
 import com.dicoding.practice.submission3.view.MainActivity
@@ -18,6 +19,7 @@ import java.lang.Exception
 class MainViewModel(private val pref: SettingPreferences): ViewModel() {
     private val listUsersNonMutable = ArrayList<User>()
     private val listUsersMutable = MutableLiveData<ArrayList<User>>()
+    val myGITHUBKEY = BuildConfig.GITHUBKEY
 
     fun getThemeSettings(): LiveData<Boolean> {
         return pref.getThemeSetting().asLiveData()
@@ -36,7 +38,7 @@ class MainViewModel(private val pref: SettingPreferences): ViewModel() {
     fun getDataGit(context: Context) {
 
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "token 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")
+        httpClient.addHeader("Authorization", myGITHUBKEY)
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users"
 
@@ -87,7 +89,7 @@ class MainViewModel(private val pref: SettingPreferences): ViewModel() {
     fun getDataGitSearch(query: String, context: Context) {
 
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "token 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")
+        httpClient.addHeader("Authorization", myGITHUBKEY)
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/search/users?q=$query"
 
@@ -137,7 +139,7 @@ class MainViewModel(private val pref: SettingPreferences): ViewModel() {
 
     private fun getDataGitDetail(usernameLogin: String, context: Context) {
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "token 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")
+        httpClient.addHeader("Authorization", myGITHUBKEY)
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users/$usernameLogin"
 

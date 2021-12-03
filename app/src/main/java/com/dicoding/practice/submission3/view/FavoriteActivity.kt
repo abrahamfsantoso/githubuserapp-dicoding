@@ -48,7 +48,7 @@ class FavoriteActivity : AppCompatActivity() {
 
         binding.rvUsersFavorite.layoutManager = LinearLayoutManager(this)
         binding.rvUsersFavorite.setHasFixedSize(true)
-        adapter = FavouriteAdapter(this)
+        adapter = FavouriteAdapter()
         binding.rvUsersFavorite.adapter = adapter
 
         val handleThread = HandlerThread("DataObserver")

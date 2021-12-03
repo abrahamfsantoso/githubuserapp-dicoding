@@ -12,6 +12,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "GITHUBKEY", '"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"'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,8 +53,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
     implementation "androidx.datastore:datastore-preferences:1.0.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
     testImplementation 'org.mockito:mockito-core:3.6.0'
     testImplementation 'org.mockito:mockito-inline:3.6.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'

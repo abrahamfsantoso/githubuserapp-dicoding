@@ -1,6 +1,5 @@
 package com.dicoding.practice.submission3.adapter
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.dicoding.practice.submission3.model.Favorite
 import com.dicoding.practice.submission3.model.User
 import com.dicoding.practice.submission3.view.UserDetailActivity
 
-class FavouriteAdapter(private val activity: Activity) :
+class FavouriteAdapter :
     RecyclerView.Adapter<FavouriteAdapter.ListViewHolder>() {
 
     var listFavourite = ArrayList<Favorite>()
@@ -25,7 +24,8 @@ class FavouriteAdapter(private val activity: Activity) :
             notifyDataSetChanged()
         }
 
-    inner class ListViewHolder(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ListViewHolder(private val binding: ItemUserBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(favorite: Favorite) {
             binding.apply {
                 Glide.with(itemView.context)

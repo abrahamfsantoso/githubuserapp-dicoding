@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dicoding.practice.submission3.BuildConfig
 import com.dicoding.practice.submission3.model.Follower
 import com.dicoding.practice.submission3.view.fragment.FollowerFragment
 import com.loopj.android.http.AsyncHttpClient
@@ -18,6 +19,7 @@ import java.lang.Exception
 class FollowerViewModel : ViewModel() {
     private val listFollowerNonMutable = ArrayList<Follower>()
     private val listFollowerMutable = MutableLiveData<ArrayList<Follower>>()
+    val myGITHUBKEY = BuildConfig.GITHUBKEY
 
     fun getListFollower(): LiveData<ArrayList<Follower>> {
         return listFollowerMutable
@@ -25,7 +27,7 @@ class FollowerViewModel : ViewModel() {
 
     fun getDataGit(context: Context, id: String) {
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "token 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")
+        httpClient.addHeader("Authorization", myGITHUBKEY)
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users/$id/followers"
 
@@ -74,7 +76,7 @@ class FollowerViewModel : ViewModel() {
 
     private fun getDataGitDetail(usernameLogin: String, context: Context) {
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "token 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")
+        httpClient.addHeader("Authorization", myGITHUBKEY)
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users/$usernameLogin"
 
